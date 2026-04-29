@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Início - Segurança Pessoal{% endblock %}
+
+{% block content %}
+
+<!-- Seção de Botão de Pânico -->
+<section class="mb-8">
+    <div class="text-center mb-6">
+        <h2 class="text-lg font-semibold text-gray-800 mb-2">AJUDA RÁPIDA</h2>
+        <p class="text-gray-600 text-sm">Pressione o botão abaixo para enviar sua localização</p>
+    </div>
+
+    <!-- Botão de Pânico Grande -->
+    <button id="botaoPanico"
+        class="w-full h-40 bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold text-2xl rounded-3xl shadow-2xl transform transition-all duration-200 flex items-center justify-center flex-col gap-4">
+        <span class="text-5xl">🆘</span>
+        <span>PÂNICO</span>
+    </button>
+
+    <!-- Status -->
+    <div id="statusPanico" class="mt-4 p-3 rounded-lg bg-blue-100 text-blue-700 text-sm hidden">
+        <p id="statusTexto"></p>
+    </div>
+</section>
+
+<!-- Seção Abas -->
+<div class="flex gap-2 mb-6 border-b border-gray-200">
+    <button class="aba-btn flex-1 py-3 px-4 border-b-2 border-purple-600 text-purple-600 font-semibold"
+        data-aba="contatos">
+        📞 Contatos
+    </button>
+    <button class="aba-btn flex-1 py-3 px-4 border-b-2 border-gray-300 text-gray-600" data-aba="locais">
+        📍 Locais Seguros
+    </button>
+</div>
+
+<!-- TAB: CONTATOS DE EMERGÊNCIA -->
+<div id="aba-contatos" class="aba-conteudo">
+    <div class="mb-4">
+        <input type="text" id="nomeContato" placeholder="Nome"
+            class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+        <input type="tel" id="telefoneContato" placeholder="Telefone"
+            class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+        <input type="text" id="relacaoContato" placeholder="Relação (ex: Mãe)"
+            class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+        <button id="adicionarContato"
+            class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold">
+            + Adicionar Contato
+        </button>
+    </div>
+
+    <div id="listaContatos" class="space-y-2">
+        <!-- Contatos carregados aqui -->
+    </div>
+</div>
+
+<!-- TAB: LOCAIS SEGUROS -->
+<div id="aba-locais" class="aba-conteudo hidden">
+    <div class="mb-4">
+        <input type="text" id="nomeLocal" placeholder="Nome do local"
+            class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+        <select id="tipoLocal" class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+            <option value="">Tipo de local</option>
+            <option value="Delegacia">Delegacia</option>
+            <option value="Hospital">Hospital</option>
+            <option value="Amigo">Casa de amigo</option>
+            <option value="Família">Casa de família</option>
+            <option value="Outro">Outro</option>
+        </select>
+        <input type="text" id="enderecoLocal" placeholder="Endereço (opcional)"
+            class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+        <button id="adicionarLocal"
+            class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold">
+            + Adicionar Local
+        </button>
+    </div>
+
+    <div id="listaLocais" class="space-y-2">
+        <!-- Locais carregados aqui -->
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/contatos.js') }}"></script>
+<script src="{{ url_for('static', filename='js/locais.js') }}"></script>
+<script src="{{ url_for('static', filename='js/panico.js') }}"></script>
+{% endblock %}

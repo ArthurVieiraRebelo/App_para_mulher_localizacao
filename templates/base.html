@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="App de segurança pessoal para mulheres">
+    <meta name="theme-color" content="#d946ef">
+
+    <title>{% block title %}Segurança Pessoal{% endblock %}</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon-192.png') }}">
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Container Principal -->
+    <div id="app" class="min-h-screen flex flex-col">
+
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md sticky top-0 z-50">
+            <div class="max-w-md mx-auto px-4 py-4">
+                <h1 class="text-2xl font-bold text-center">🛡️ Segura</h1>
+                <p class="text-pink-100 text-center text-sm">Sua segurança é nossa prioridade</p>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="flex-1 max-w-md mx-auto w-full px-4 py-6">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-100 border-t border-gray-200 mt-8">
+            <div class="max-w-md mx-auto px-4 py-4 text-center text-sm text-gray-600">
+                <p>Desenvolvido com ❤️ para sua segurança</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+
+    <script>
+        // Service Worker (PWA)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/js/sw.js').catch(err => console.log('SW Error:', err));
+        }
+    </script>
+</body>
+
+</html>
