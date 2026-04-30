@@ -1,4 +1,4 @@
-"""
+﻿"""
 Rotas da aplicação.
 Define endpoints para:
 - Página principal (HTML)
