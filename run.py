@@ -23,22 +23,18 @@ def create_app():
     """
     from flask import Flask
     from app.models import db
+    from config.settings import Config
     
     app = Flask(__name__)
     os.makedirs(app.instance_path, exist_ok=True)
     
-    # Configuração
-    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///app.db')
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SESSION_TYPE'] = 'filesystem'
+    app.config.from_object(Config)
     
     # Inicializa banco de dados
     db.init_app(app)
     
     # Registra blueprints (rotas)
-    from app.routes import main_bp, api_bp
-    from app.routes_auth import auth_bp
+    from app.routes import auth_bp, main_bp, api_bp
     app.register_blueprint(main_bp)
     app.register_blueprint(api_bp)
     app.register_blueprint(auth_bp)

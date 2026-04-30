@@ -54,7 +54,7 @@ cp .env.example .env
 
 ### 5. Execute a aplicação
 ```bash
-python app.py
+python run.py
 ```
 
 O app estará disponível em `http://localhost:5000`
@@ -76,9 +76,14 @@ App_para_mulher_localizacao/
 ├── templates/
 │   ├── base.html              # Template base
 │   └── index.html             # Página inicial
-├── app.py                     # Aplicação principal Flask
-├── models.py                  # Modelos do banco de dados
-├── routes.py                  # Rotas e endpoints API
+├── app/                       # Código principal da aplicação
+│   ├── routes/                # Rotas separadas por responsabilidade
+│   ├── models/                # Modelos do banco de dados
+│   ├── services/              # Integrações e lógica de negócio
+│   └── utils/                 # Funções auxiliares
+├── config/                    # Configurações do projeto
+├── tests/                     # Testes automatizados
+├── run.py                     # Ponto de entrada principal
 ├── requirements.txt           # Dependências Python
 ├── .env.example               # Exemplo de variáveis
 └── README.md                  # Este arquivo

@@ -4,8 +4,7 @@ Rotas de autenticação e gerenciamento de usuários.
 
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 from functools import wraps
-from app.models import db, ContatoEmergencia, LocalSeguro
-from app.models_avancados import Usuario, HistoricoSOS
+from app.models import HistoricoSOS, Usuario, db
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 

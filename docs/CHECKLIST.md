@@ -38,7 +38,7 @@
 - [x] `DEVELOPMENT.md` - Guia desenvolvimento completo
 - [x] `WHATSAPP_SETUP.md` - Setup WhatsApp detalhado
 - [x] `FILE_INDEX.md` - Índice de todos arquivos
-- [x] `IMPLEMENTACAO_RESUMO.md` - Resumo técnico
+- [x] `IMPLEMENTACAO.md` - Resumo técnico
 
 ### Root
 - [x] `run.py` - Entry point principal
@@ -126,7 +126,7 @@
 - [x] DEVELOPMENT.md - Guia técnico (10 seções)
 - [x] WHATSAPP_SETUP.md - Setup WhatsApp (detalhado)
 - [x] FILE_INDEX.md - Índice arquivos
-- [x] IMPLEMENTACAO_RESUMO.md - Resumo técnico
+- [x] IMPLEMENTACAO.md - Resumo técnico
 - [x] Todos os links cruzados
 - [x] Exemplos de código
 - [x] Troubleshooting
@@ -205,7 +205,7 @@
 ## ✅ Pronto Para...
 
 - [x] **Uso Local**: `python run.py`
-- [x] **Testes**: `python scripts/test_app.py`
+- [x] **Testes**: `python tests/test_app.py`
 - [x] **Mobile**: Instalar como app (celular)
 - [x] **Offline**: Service Worker funciona
 - [x] **Desenvolvimento**: Código limpo e documentado

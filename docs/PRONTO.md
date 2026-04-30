@@ -61,7 +61,7 @@ http://localhost:5000
 ### ✅ Documentação
 - [x] DEVELOPMENT.md (guia completo)
 - [x] WHATSAPP_SETUP.md (integração WhatsApp)
-- [x] IMPLEMENTACAO_RESUMO.md (visão técnica)
+- [x] IMPLEMENTACAO.md (visão técnica)
 - [x] FILE_INDEX.md (índice de arquivos)
 - [x] README.md (visão geral)
 
@@ -87,7 +87,7 @@ App_para_mulher_localizacao/
 ├── docs/                     ← Documentação
 │   ├── DEVELOPMENT.md
 │   ├── WHATSAPP_SETUP.md
-│   ├── IMPLEMENTACAO_RESUMO.md
+│   ├── IMPLEMENTACAO.md
 │   └── FILE_INDEX.md
 ├── templates/                ← HTML
 │   ├── base.html
@@ -190,7 +190,7 @@ http://localhost:5000
 ## 🧪 Testar Tudo
 
 ```bash
-python scripts/test_app.py
+python tests/test_app.py
 ```
 
 Testa:
@@ -250,7 +250,7 @@ Se quiser automático (sem enviar manualmente):
 | docs/DEVELOPMENT.md | Desenvolvedores | Guia técnico completo |
 | docs/WHATSAPP_SETUP.md | Quem quer WhatsApp auto | Setup passo a passo |
 | docs/FILE_INDEX.md | Exploradores | Índice de todos arquivos |
-| docs/IMPLEMENTACAO_RESUMO.md | Técnicos | O que foi feito |
+| docs/IMPLEMENTACAO.md | Técnicos | O que foi feito |
 
 ---
 
@@ -296,7 +296,7 @@ app.run(port=5001)  # ou qualquer número
 Dúvidas?
 
 1. **Leia a documentação** em `docs/`
-2. **Rode os testes** com `python scripts/test_app.py`
+2. **Rode os testes** com `python tests/test_app.py`
 3. **Verifique o navegador** DevTools (F12)
 4. **Visite** https://flask.palletsprojects.com (Flask docs)
 

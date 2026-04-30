@@ -83,7 +83,7 @@ Referência rápida de todos os arquivos do projeto com descrições.
 | `DEVELOPMENT.md` | Guia completo de desenvolvimento |
 | `WHATSAPP_SETUP.md` | Setup WhatsApp (MVP + Business API) |
 | `FILE_INDEX.md` | Este arquivo |
-| `IMPLEMENTACAO_RESUMO.md` | Resumo técnico do que foi implementado |
+| `IMPLEMENTACAO.md` | Resumo técnico do que foi implementado |
 
 ---
 
@@ -130,7 +130,7 @@ python run.py                 # Direto
 
 ### Para Testar Funcionalidades
 ```bash
-python scripts/test_app.py    # Roda 7 testes automatizados
+python tests/test_app.py    # Roda 7 testes automatizados
 ```
 
 ### Para Setup Inicial
@@ -242,7 +242,7 @@ Total               14 rotas
 → `templates/base.html` + `static/css/style.css` + Tailwind CDN
 
 ### Teste de Funcionalidades
-→ `scripts/test_app.py`
+→ `tests/test_app.py`
 
 ### Setup / Inicialização
 → `scripts/setup.py` + `run.py`

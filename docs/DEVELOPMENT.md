@@ -125,7 +125,7 @@ App_para_mulher_localizacao/
 │   ├── DEVELOPMENT.md           # Este arquivo
 │   ├── WHATSAPP_SETUP.md        # Guia WhatsApp
 │   ├── FILE_INDEX.md            # Índice de arquivos
-│   └── IMPLEMENTACAO_RESUMO.md  # Resumo técnico
+│   └── IMPLEMENTACAO.md  # Resumo técnico
 ├── config/                       # Configurações
 │   └── .env.example             # Template de variáveis
 ├── instance/                     # Instância da aplicação
@@ -402,7 +402,7 @@ O arquivo `sw.js` implementa:
 ### Testes Automatizados
 
 ```bash
-python scripts/test_app.py
+python tests/test_app.py
 ```
 
 Testa:
