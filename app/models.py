@@ -17,6 +17,7 @@ class ContatoEmergencia(db.Model):
     __tablename__ = 'contatos_emergencia'
     
     id = db.Column(db.Integer, primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=True, index=True)
     nome = db.Column(db.String(100), nullable=False)
     telefone = db.Column(db.String(20), nullable=False)
     relacao = db.Column(db.String(50), default='Contato')  # mãe, amiga, etc.
@@ -43,6 +44,7 @@ class LocalSeguro(db.Model):
     __tablename__ = 'locais_seguros'
     
     id = db.Column(db.Integer, primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=True, index=True)
     nome = db.Column(db.String(150), nullable=False)
     tipo = db.Column(db.String(50), default='Outro')  # Delegacia, Hospital, Amigo, etc.
     latitude = db.Column(db.Float, nullable=True)

@@ -25,10 +25,11 @@ def create_app():
     from app.models import db
     
     app = Flask(__name__)
+    os.makedirs(app.instance_path, exist_ok=True)
     
     # Configuração
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///instance/app.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///app.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SESSION_TYPE'] = 'filesystem'
     
@@ -45,7 +46,7 @@ def create_app():
     # Cria tabelas no primeiro acesso
     with app.app_context():
         db.create_all()
-        print('✅ Banco de dados inicializado')
+        print('Banco de dados inicializado')
     
     return app
 
@@ -59,11 +60,11 @@ if __name__ == '__main__':
     port = int(os.getenv('FLASK_PORT', 5000))
     
     print(f'\n{'='*60}')
-    print(f'🛡️  APP SEGURA - Segurança Pessoal para Mulheres')
+    print('APP SEGURA - Seguranca Pessoal para Mulheres')
     print(f'{'='*60}')
-    print(f'🚀 Iniciando servidor em http://{host}:{port}')
-    print(f'🔧 Debug: {debug_mode}')
-    print(f'🗄️  Banco: {app.config["SQLALCHEMY_DATABASE_URI"]}')
+    print(f'Iniciando servidor em http://{host}:{port}')
+    print(f'Debug: {debug_mode}')
+    print(f'Banco: {app.config["SQLALCHEMY_DATABASE_URI"]}')
     print(f'{'='*60}\n')
     
     # Em produção, use um servidor WSGI (Gunicorn)
