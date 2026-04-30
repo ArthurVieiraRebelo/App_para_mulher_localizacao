@@ -1,0 +1,162 @@
+/* 
+   Estilos personalizados para o app de segurança pessoal.
+   Complementa o Tailwind CSS
+*/
+
+:root {
+    --cor-primaria: #d946ef;
+    --cor-secundaria: #9333ea;
+    --cor-perigo: #dc2626;
+    --cor-sucesso: #16a34a;
+    --cor-alerta: #ea580c;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Animação de pulsação para botão de pânico */
+@keyframes pulse-panic {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+    }
+}
+
+#botaoPanico {
+    animation: pulse-panic 2s infinite;
+}
+
+#botaoPanico:active {
+    animation: none;
+}
+
+/* Abas */
+.aba-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.aba-btn.active {
+    border-color: var(--cor-primaria);
+    color: var(--cor-primaria);
+}
+
+/* Conteúdo de abas */
+.aba-conteudo {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.aba-conteudo.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cards de contatos e locais */
+.card-item {
+    background: white;
+    border-left: 4px solid var(--cor-primaria);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.card-item:active {
+    transform: scale(0.98);
+}
+
+.card-item-info {
+    flex: 1;
+}
+
+.card-item-info h3 {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.card-item-info p {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.btn-delete {
+    background: var(--cor-perigo);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-delete:active {
+    transform: scale(0.95);
+}
+
+/* Status messages */
+#statusPanico {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile optimizations */
+input,
+button,
+select {
+    font-size: 16px;
+    /* Previne zoom automático no iOS */
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+/* Para dispositivos com suporte a safe area (notch) */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+}

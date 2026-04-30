@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="App de seguranca pessoal para mulheres">
+    <meta name="theme-color" content="#d946ef">
+    <title>Segura - Seguranca Pessoal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="manifest" href="static/manifest.json">
+</head>
+
+<body class="bg-gray-50">
+    <div id="app" class="min-h-screen flex flex-col">
+        <header class="bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md sticky top-0 z-50">
+            <div class="max-w-md mx-auto px-4 py-4">
+                <h1 class="text-2xl font-bold text-center">Segura</h1>
+                <p class="text-pink-100 text-center text-sm">Sua seguranca e nossa prioridade</p>
+            </div>
+        </header>
+
+        <main class="flex-1 max-w-md mx-auto w-full px-4 py-6">
+            <section class="mb-8">
+                <div class="text-center mb-6">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-2">AJUDA RAPIDA</h2>
+                    <p class="text-gray-600 text-sm">Pressione o botao abaixo para enviar sua localizacao</p>
+                </div>
+
+                <button id="botaoPanico"
+                    class="w-full h-40 bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold text-2xl rounded-3xl shadow-2xl transform transition-all duration-200 flex items-center justify-center flex-col gap-4">
+                    <span class="text-5xl">SOS</span>
+                    <span>PANICO</span>
+                </button>
+
+                <div id="statusPanico" class="mt-4 p-3 rounded-lg bg-blue-100 text-blue-700 text-sm hidden">
+                    <p id="statusTexto"></p>
+                </div>
+            </section>
+
+            <div class="flex gap-2 mb-6 border-b border-gray-200">
+                <button class="aba-btn active flex-1 py-3 px-4 border-b-2 border-purple-600 text-purple-600 font-semibold"
+                    data-aba="contatos">
+                    Contatos
+                </button>
+                <button class="aba-btn flex-1 py-3 px-4 border-b-2 border-gray-300 text-gray-600"
+                    data-aba="locais">
+                    Locais Seguros
+                </button>
+            </div>
+
+            <div id="aba-contatos" class="aba-conteudo">
+                <div class="mb-4">
+                    <input type="text" id="nomeContato" placeholder="Nome"
+                        class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+                    <input type="tel" id="telefoneContato" placeholder="Telefone"
+                        class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+                    <input type="text" id="relacaoContato" placeholder="Relacao (ex: Mae)"
+                        class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+                    <button id="adicionarContato"
+                        class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold">
+                        + Adicionar Contato
+                    </button>
+                </div>
+
+                <div id="listaContatos" class="space-y-2"></div>
+            </div>
+
+            <div id="aba-locais" class="aba-conteudo hidden">
+                <div class="mb-4">
+                    <input type="text" id="nomeLocal" placeholder="Nome do local"
+                        class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+                    <select id="tipoLocal" class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+                        <option value="">Tipo de local</option>
+                        <option value="Delegacia">Delegacia</option>
+                        <option value="Hospital">Hospital</option>
+                        <option value="Amigo">Casa de amigo</option>
+                        <option value="Familia">Casa de familia</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <input type="text" id="enderecoLocal" placeholder="Endereco (opcional)"
+                        class="w-full p-3 border border-gray-300 rounded-lg mb-2">
+                    <button id="adicionarLocal"
+                        class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold">
+                        + Adicionar Local
+                    </button>
+                </div>
+
+                <div id="listaLocais" class="space-y-2"></div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-100 border-t border-gray-200 mt-8">
+            <div class="max-w-md mx-auto px-4 py-4 text-center text-sm text-gray-600">
+                <p>Desenvolvido para sua seguranca</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="static/js/app.js"></script>
+    <script src="static/js/contatos.js"></script>
+    <script src="static/js/locais.js"></script>
+    <script src="static/js/panico.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('static/js/sw.js').catch(err => console.log('SW Error:', err));
+        }
+    </script>
+</body>
+
+</html>
